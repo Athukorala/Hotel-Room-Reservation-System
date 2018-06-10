@@ -1,0 +1,343 @@
+-- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
+--
+-- Host: localhost    Database: MangrovenNew
+-- ------------------------------------------------------
+-- Server version	5.7.20-0ubuntu0.16.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `Cost`
+--
+
+DROP TABLE IF EXISTS `Cost`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Cost` (
+  `CostID` varchar(10) NOT NULL,
+  `Description` varchar(50) NOT NULL,
+  `Cost` double DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `Time` time DEFAULT NULL,
+  PRIMARY KEY (`CostID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Cost`
+--
+
+LOCK TABLES `Cost` WRITE;
+/*!40000 ALTER TABLE `Cost` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Cost` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Food`
+--
+
+DROP TABLE IF EXISTS `Food`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Food` (
+  `FID` varchar(10) NOT NULL,
+  `Food_Name` varchar(30) NOT NULL,
+  `Unit_Price` double DEFAULT NULL,
+  PRIMARY KEY (`FID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Food`
+--
+
+LOCK TABLES `Food` WRITE;
+/*!40000 ALTER TABLE `Food` DISABLE KEYS */;
+INSERT INTO `Food` VALUES ('F001','Chicken Fried Rice',1050),('F002','Mixed Fried Rice',1200),('F003','Sea Food Rice',1200),('F004','Grilled Tuna',350),('F005','Tomato Soup',300),('F006','Fish Soup',450),('F007','Chicken Cordan Bleu',1200),('F008','Grill Chicken',1050),('F009','Put Of Tea',300),('F010','Put Of Sri Lanka Coffee',300),('F011','Egg- S/W',450),('F012','Tomato- S/W',450),('F013','Cheese- S/W',450),('F014','Chicken- S/W',550),('F015','Papaya',300),('F016','PineApple',300),('F017','Coke',300),('F018','Sprite',300),('F019','Deviled Chicken',750),('F020','Deviled Fish',700),('F021','Fish Filet',650);
+/*!40000 ALTER TABLE `Food` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Food_Package`
+--
+
+DROP TABLE IF EXISTS `Food_Package`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Food_Package` (
+  `PID` varchar(10) NOT NULL,
+  `Package_Name` varchar(30) NOT NULL,
+  `Package_Price` double NOT NULL,
+  PRIMARY KEY (`PID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Food_Package`
+--
+
+LOCK TABLES `Food_Package` WRITE;
+/*!40000 ALTER TABLE `Food_Package` DISABLE KEYS */;
+INSERT INTO `Food_Package` VALUES ('P001','Rice',1050),('P002','Soup',1200),('P003','Devileds',1200),('P004','Sea Food',1700),('P005','Chicken',2100),('P006','Hot Drink',600),('P007','Snacks',970),('P008','Soft Drinks',1700),('P009','Fresh Fruit Juice',1700);
+/*!40000 ALTER TABLE `Food_Package` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Guest`
+--
+
+DROP TABLE IF EXISTS `Guest`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Guest` (
+  `GID` varchar(10) NOT NULL,
+  `Name` varchar(50) NOT NULL,
+  `Address` varchar(50) DEFAULT NULL,
+  `Tel` varchar(20) DEFAULT NULL,
+  `Email` varchar(50) DEFAULT NULL,
+  `Country` varchar(50) DEFAULT NULL,
+  `Gender` varchar(10) DEFAULT NULL,
+  `DOB` date DEFAULT NULL,
+  `NIC` varchar(16) DEFAULT NULL,
+  `Passport_No` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`GID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Guest`
+--
+
+LOCK TABLES `Guest` WRITE;
+/*!40000 ALTER TABLE `Guest` DISABLE KEYS */;
+INSERT INTO `Guest` VALUES ('G001','Kamal Perera','NO:29,Galle','77226555','Kamal@gmail.com','Sri Lanka','Male','1996-12-03','962631444v','984054804554'),('G002','Nimal Fernando','NO:29,Galle','77226555','Nimal@gmail.com','Sri Lanka','Male','1996-12-03','962631444v','984054804554'),('G003','Sumal Gunasiri','NO:29,Galle','77226555','Sumal@gmail.com','Sri Lanka','Male','1996-12-03','962631444v','984054804554'),('G004','Pavan Madusanka','NO:29,Galle','77226555','Pavan@gmail.com','Sri Lanka','Male','1996-12-03','962631444v','984054804554'),('G005','Kesara Jayalal','NO:29,Galle','77226555','Kesara@gmail.com','Sri Lanka','Male','1996-12-03','962631444v','984054804554'),('G006','Binura Sachithra','NO:29,Galle','77226555','Binura@gmail.com','Sri Lanka','Male','1996-12-03','962631444v','984054804554'),('G007','Yomal Pathum','NO:29,Galle','77226555','Yomal@gmail.com','Sri Lanka','Male','1996-12-03','962631444v','984054804554'),('G008','Shani Nisansala','NO:25,Panadura','77224555','Shania@gmail.com','Sri Lanka','Female','1998-12-03','962631444v','984054804554');
+/*!40000 ALTER TABLE `Guest` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `OrderDetail`
+--
+
+DROP TABLE IF EXISTS `OrderDetail`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `OrderDetail` (
+  `OID` varchar(10) NOT NULL,
+  `PID` varchar(10) NOT NULL,
+  `Qty` int(11) DEFAULT NULL,
+  PRIMARY KEY (`OID`,`PID`),
+  KEY `PID` (`PID`),
+  CONSTRAINT `OrderDetail_ibfk_1` FOREIGN KEY (`OID`) REFERENCES `Orders` (`OID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `OrderDetail_ibfk_2` FOREIGN KEY (`PID`) REFERENCES `Food_Package` (`PID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `OrderDetail`
+--
+
+LOCK TABLES `OrderDetail` WRITE;
+/*!40000 ALTER TABLE `OrderDetail` DISABLE KEYS */;
+INSERT INTO `OrderDetail` VALUES ('O001','P001',1),('O002','P001',1),('O002','P002',1),('O003','P001',1),('O003','P002',1),('O003','P003',1),('O004','P003',4),('O004','P008',4),('O005','P003',4),('O005','P004',4),('O005','P005',4);
+/*!40000 ALTER TABLE `OrderDetail` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Orders`
+--
+
+DROP TABLE IF EXISTS `Orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Orders` (
+  `OID` varchar(10) NOT NULL,
+  `RsID` varchar(10) NOT NULL,
+  `Date` date DEFAULT NULL,
+  `Period` varchar(20) DEFAULT NULL,
+  `Price` double DEFAULT NULL,
+  PRIMARY KEY (`OID`),
+  KEY `RsID` (`RsID`),
+  CONSTRAINT `Orders_ibfk_1` FOREIGN KEY (`RsID`) REFERENCES `Reservation` (`RsID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Orders`
+--
+
+LOCK TABLES `Orders` WRITE;
+/*!40000 ALTER TABLE `Orders` DISABLE KEYS */;
+INSERT INTO `Orders` VALUES ('O001','RS001','2017-09-09','Breakfast',1050),('O002','RS001','2017-03-24','Dinner',2250),('O003','RS002','2017-03-21','Breakfast',3450),('O004','RS003','2017-10-21','Lunch',11600),('O005','RS001','2017-10-09','Breakfast',20000);
+/*!40000 ALTER TABLE `Orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Package_Food_Detail`
+--
+
+DROP TABLE IF EXISTS `Package_Food_Detail`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Package_Food_Detail` (
+  `PID` varchar(10) NOT NULL,
+  `FID` varchar(10) NOT NULL,
+  PRIMARY KEY (`PID`,`FID`),
+  KEY `FID` (`FID`),
+  CONSTRAINT `Package_Food_Detail_ibfk_1` FOREIGN KEY (`FID`) REFERENCES `Food` (`FID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `Package_Food_Detail_ibfk_2` FOREIGN KEY (`PID`) REFERENCES `Food_Package` (`PID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Package_Food_Detail`
+--
+
+LOCK TABLES `Package_Food_Detail` WRITE;
+/*!40000 ALTER TABLE `Package_Food_Detail` DISABLE KEYS */;
+INSERT INTO `Package_Food_Detail` VALUES ('P001','F001'),('P001','F002'),('P001','F003'),('P002','F004'),('P004','F004'),('P002','F005'),('P002','F006'),('P005','F007'),('P005','F008'),('P006','F009'),('P006','F010'),('P007','F011'),('P007','F012'),('P009','F015'),('P009','F016'),('P008','F017'),('P003','F018'),('P008','F018'),('P003','F019'),('P004','F020');
+/*!40000 ALTER TABLE `Package_Food_Detail` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Password`
+--
+
+DROP TABLE IF EXISTS `Password`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Password` (
+  `passID` varchar(5) NOT NULL,
+  `User_Name` varchar(20) NOT NULL,
+  `Password` varchar(30) NOT NULL,
+  PRIMARY KEY (`passID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Password`
+--
+
+LOCK TABLES `Password` WRITE;
+/*!40000 ALTER TABLE `Password` DISABLE KEYS */;
+INSERT INTO `Password` VALUES ('Pw01','admin','ijse');
+/*!40000 ALTER TABLE `Password` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Payment`
+--
+
+DROP TABLE IF EXISTS `Payment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Payment` (
+  `PYID` varchar(10) NOT NULL,
+  `RsID` varchar(10) DEFAULT NULL,
+  `RID` varchar(10) DEFAULT NULL,
+  `OID` varchar(10) DEFAULT NULL,
+  `CostID` varchar(10) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `Time` time DEFAULT NULL,
+  `Cost` double DEFAULT NULL,
+  `Amount` double DEFAULT NULL,
+  `Advance` double DEFAULT NULL,
+  PRIMARY KEY (`PYID`),
+  KEY `CostID` (`CostID`),
+  KEY `RsID` (`RsID`),
+  KEY `RID` (`RID`),
+  KEY `OID` (`OID`),
+  CONSTRAINT `Payment_ibfk_1` FOREIGN KEY (`CostID`) REFERENCES `Cost` (`CostID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `Payment_ibfk_2` FOREIGN KEY (`RsID`) REFERENCES `Reservation` (`RsID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `Payment_ibfk_3` FOREIGN KEY (`RID`) REFERENCES `Room` (`RID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `Payment_ibfk_4` FOREIGN KEY (`OID`) REFERENCES `Orders` (`OID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Payment`
+--
+
+LOCK TABLES `Payment` WRITE;
+/*!40000 ALTER TABLE `Payment` DISABLE KEYS */;
+INSERT INTO `Payment` VALUES ('PY001','RS001','R01',NULL,NULL,'2017-09-23','03:50:00',0,19200,19200),('PY002','RS001',NULL,'O001',NULL,'2017-09-24','03:50:00',0,1050,1000),('PY003','RS001',NULL,'O002',NULL,'2017-09-23','03:50:00',0,2500,2250),('PY004','RS002','R04',NULL,NULL,'2017-09-27','03:50:00',0,30000,30000),('PY005','RS002',NULL,'O003',NULL,'2017-10-03','03:50:00',0,3450,2500),('PY006','RS003','R03',NULL,NULL,'2017-10-09','03:50:00',0,13000,13000),('PY007','RS004','R04',NULL,NULL,'2017-10-18','03:50:00',0,12000,12000),('PY008','RS005','R02',NULL,NULL,'2017-10-18','03:50:00',0,19200,19200),('PY009','RS006','R03',NULL,NULL,'2017-10-09','03:50:00',0,13000,13000),('PY010','RS007','R04',NULL,NULL,'2017-09-20','11:33:08',NULL,60000,60000),('PY011','RS008','R01',NULL,NULL,'2017-10-08','02:53:24',NULL,19200,19200),('PY012','RS003',NULL,'O004',NULL,'2017-10-08','02:54:15',NULL,11600,11600),('PY013','RS001',NULL,'O005',NULL,'2017-10-09','11:06:50',NULL,20000,20000);
+/*!40000 ALTER TABLE `Payment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Reservation`
+--
+
+DROP TABLE IF EXISTS `Reservation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Reservation` (
+  `RsID` varchar(10) NOT NULL,
+  `GID` varchar(10) NOT NULL,
+  `RID` varchar(10) NOT NULL,
+  `Persons` int(11) DEFAULT NULL,
+  `Check_In` date DEFAULT NULL,
+  `Check_Out` date DEFAULT NULL,
+  `Price` double DEFAULT NULL,
+  PRIMARY KEY (`RsID`),
+  KEY `GID` (`GID`),
+  KEY `RID` (`RID`),
+  CONSTRAINT `Reservation_ibfk_1` FOREIGN KEY (`GID`) REFERENCES `Guest` (`GID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `Reservation_ibfk_2` FOREIGN KEY (`RID`) REFERENCES `Room` (`RID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Reservation`
+--
+
+LOCK TABLES `Reservation` WRITE;
+/*!40000 ALTER TABLE `Reservation` DISABLE KEYS */;
+INSERT INTO `Reservation` VALUES ('RS001','G001','R01',4,'2017-09-08','2017-09-09',19200),('RS002','G001','R04',4,'2017-09-08','2017-09-12',30000),('RS003','G005','R03',4,'2017-09-27','2017-09-28',13000),('RS004','G002','R04',4,'2017-10-03','2017-10-04',12000),('RS005','G003','R02',4,'2017-10-09','2017-10-10',19200),('RS006','G004','R03',4,'2017-10-18','2017-10-19',13000),('RS007','G001','R04',1,'2017-09-20','2017-09-29',60000),('RS008','G001','R01',2,'2017-10-08','2017-10-09',19200);
+/*!40000 ALTER TABLE `Reservation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Room`
+--
+
+DROP TABLE IF EXISTS `Room`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Room` (
+  `RID` varchar(10) NOT NULL,
+  `Room_Name` varchar(30) NOT NULL,
+  `Room_Description` varchar(200) NOT NULL,
+  `Room_Price` double NOT NULL,
+  PRIMARY KEY (`RID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Room`
+--
+
+LOCK TABLES `Room` WRITE;
+/*!40000 ALTER TABLE `Room` DISABLE KEYS */;
+INSERT INTO `Room` VALUES ('R01','Family Suite -A',' Max 3 Guest Free WIFI  A|C Rooms',9600),('R02','Family Suite -B',' Max 3 Guest Free WIFI  A|C Rooms',9600),('R03','Deluxe Villa',' Max 3 Guest Free WIFI  A|C Rooms',6500),('R04','Deluxe Double Room',' Max 2 Guest Free WIFI  A|C Rooms',6000),('R05','Unknown A','Free WI-FI',0),('R06','Unknown B','Free WI-FI',0);
+/*!40000 ALTER TABLE `Room` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2017-12-04 22:56:22
